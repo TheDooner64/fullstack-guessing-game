@@ -47,7 +47,7 @@ a {
 ======================================================*/
 
 header {
-  background: #3079AB;
+  background: #2A433A;
   color: #ffffff;
   font-size: 40;
   font: 16px/1 sans-serif;
@@ -123,8 +123,11 @@ button {
 
 img {
   max-width: 100%;
-  height: auto;
+  height: 200px;
   border: 0;
+  text-align: center;
+  display: block;
+  margin: 0 auto;
 }
 
 /* Close indicator
@@ -136,3 +139,7 @@ img {
   font-size: 40px;
   color: red;
 }
+
+/* Footer
+======================================================*/
+

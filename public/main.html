@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Bobby's Guessing Game</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+    <link rel="stylesheet" href="stylesheets/style.css">
+  </head>
+  <body>
+    <header class="page-header">
+      <div class="container">
+        <h1>Bobby's Guessing Game</h1>
+    </div>
+    </header>
+    <div class="container">
+      <div class="jumbotron">
+        <h1>Guessing Game Instructions</h1>
+        <ul>
+          <li>Guess a number from 1-100 and click the "Submit" button</li>
+          <li>You are allowed a total of 5 guesses</li>
+          <li>After each guess, you will be given an indicator of how close you are</li>
+          <li>If you click the "Give up" button, the answer will be provided to you</li>
+          <li>Start over at any time by clicking the "Start over" button</li>
+        </ul>
+      </div>
+      <div class="row">
+        <div class="col-xs-6">
+          <form class="form">
+            <input type="text" class="form-control" placeholder="# 1-100">
+          </form>
+        </div>
+        <div class="col-xs-3">
+          <button type="button" class="btn btn-success btn-lg" id="submitGuess">
+            Submit
+          </button>
+        </div>
+        <div class="col-xs-3">
+          <div class="row">            
+            <button type="button" class="btn btn-warning btn-lg">
+              Start over
+            </button>
+          </div>
+          <div class="row">      
+            <button type="button" class="btn btn-danger btn-lg">
+              Give up
+            </button>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-xs-6">
+          <p>Placeholder for the image area</p>
+          <!-- use class="img-responsive" -->
+        </div>
+        <div class="col-xs-3 guessList">
+          <strong>Placeholder for list of guesses:</strong>
+          <ul>
+            <li>Guess #1</li>
+            <li>Guess #2</li>
+            <li>Guess #3</li>
+            <li>Guess #4</li>
+            <li>Guess #5</li>
+          </ul>
+        </div>
+      </div>
+      <div class="closeIndicator">
+        <p>Placeholder for "You're hot / cold" indicator</p> <!-- use alerts -->
+      </div>
+    </div>
+    <!-- PLACEHOLDER FOR SCRIPTS LINK -->
+    <!-- <script src="javascripts/guessApp.js"></script> -->
+  </body>
+</html>

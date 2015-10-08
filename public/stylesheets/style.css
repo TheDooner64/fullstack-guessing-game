@@ -1,0 +1,138 @@
+/* Visualize borders
+======================================================*/
+
+/*
+* {
+  border-style: solid;
+  border-width: 1px;
+}
+
+/* General CSS
+======================================================*/
+
+html {
+  margin: 0;
+  padding: 0;
+  -ms-text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font: 16px/1 sans-serif;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+}
+
+strong {
+  font-weight: bold;
+}
+
+a, button {
+  color: inherit;
+  transition: .3s;
+}
+
+a {
+  text-decoration: none;
+}
+
+::-moz-focus-inner {
+  padding: 0;
+  border: 0;
+}
+
+/* Header
+======================================================*/
+
+header {
+  background: #3079AB;
+  color: #ffffff;
+  font-size: 40;
+  font: 16px/1 sans-serif;
+}
+
+.page-header {
+  margin-top: 0;
+  margin-bottom: 10;
+}
+
+/* Jumbotron
+======================================================*/
+
+.jumbotron {
+  margin-top: 20px;
+}
+
+.jumbotron h1 {
+  font-size: 40px;
+}
+
+.jumbotron li {
+  font-size: 20px;
+  line-height: 35px;
+}
+
+/* Buttons
+======================================================*/
+
+button {
+  overflow: visible;
+  border: 0;
+  font: inherit;
+  -webkit-font-smoothing: inherit;
+  letter-spacing: inherit;
+  background: none;
+  cursor: pointer;
+}
+
+.btn {
+  width: 95%;
+  height: 45px;
+  margin-top: 5px;
+  margin-bottom: 5px;
+}
+
+#submitGuess {
+  height: 100px;
+}
+
+/* Forms
+======================================================*/
+
+.form-control {
+  height: 100px;
+  text-align: center;
+  font-size: 35px;
+  margin-top: 5px;
+  margin-bottom: 30px;
+  margin-right: 10px;
+}
+
+/* Guess list
+======================================================*/
+
+.guessList ul li {
+  font-size: 18px;
+  line-height: 30px;
+}
+
+/* Images
+======================================================*/
+
+img {
+  max-width: 100%;
+  height: auto;
+  border: 0;
+}
+
+/* Close indicator
+======================================================*/
+
+.closeIndicator {
+  margin-top: 35px;
+  text-align: center;
+  font-size: 40px;
+  color: red;
+}

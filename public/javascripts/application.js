@@ -5,7 +5,7 @@ $(document).ready(function(){
   var guessCounter = 0;
   var currentGuess = null;
   var guessStack = [];
-  var distanceNumber = null;
+  var distance = null;
   console.log("Answer = " + answer);
   
   // Function to choose a random number
@@ -65,17 +65,14 @@ $(document).ready(function(){
 
   // Function to update the guess list
   function updateGuessList(currentGuess, guessCounter) {
-    var guessString = "<li>Guess #" + guessCounter + " = " + currentGuess + "</li>";
+    var guessString = '<li class="new">Guess #' + guessCounter + " = " + currentGuess + "</li>";
     $(".guessList").find(".fadeGuess").first().after(guessString);
     $(".guessList").find(".fadeGuess").first().removeClass("fadeGuess").hide();
+    $(".guessList").find(".new").last().addClass(hotOrCold());
   }
 
-  // Function to determine the distance and direction of the indicator
-  function hotColdIndicator(currentGuess) {
-    // Determine distance from the answer
-    var distance = (currentGuess - answer);
-    // Determine whterh the guess is hot or cold
-    var hotOrCold = function() {
+  // Function to determine whether the guess is hot or cold
+    function hotOrCold() {
       if (distance > 30 || distance < -30) {
         return "ice cold";
       } else if (distance > 15 || distance < -15) {
@@ -88,10 +85,10 @@ $(document).ready(function(){
         else {
         return "CORRECT!!!";
       }
-    };
+    }
 
-    // Determine whether the next guess should be higher or lower
-    var direction = function() {
+    // Function to determine whether the next guess should be higher or lower
+    function direction() {
       if (distance > 0) {
         return "Guess lower!";
       } else if (distance < 0) {
@@ -99,8 +96,10 @@ $(document).ready(function(){
       } else {
         return "Thanks for playing!";
       }
-    };
+    }
 
+  // Function to generate the indicator message
+  function hotColdIndicator() {
     // Build an indicator message
     var message = "You are " + hotOrCold() + "! " + direction();
 
@@ -160,13 +159,15 @@ $(document).ready(function(){
         guessStack.push(currentGuess);
         console.log("Guess #" + guessCounter + " = " + currentGuess);
         console.log("# guesses remaining = " + (5 - guessCounter));
-        // Update guess list
-        updateGuessList(currentGuess, guessCounter);
-        // Check how close the guess is to the correct answer
-        hotColdIndicator(currentGuess);
+        // Determine distance from the answer
+        distance = (currentGuess - answer);
         // Show an image of the number that was guessed
         removeImage();
         imagePlacer(currentGuess);
+        // Check how close the guess is to the correct answer
+        hotColdIndicator(currentGuess);
+        // Update guess list
+        updateGuessList(currentGuess, guessCounter);
       }
       else {
         alert("Invalid guess. Please enter a number from 1-100");
@@ -189,7 +190,7 @@ $(document).ready(function(){
       alert("You can't give up because you won!" + '\nClick "Start Over" to play again!');
     }
     else if (guessCounter >= 5) {
-      alert("You can't give up because you\n have no guesses left!" + '\n\nClick "Start Over" to try again!');
+      alert("You can't give up because you\nhave no guesses left!" + '\n\nClick "Start Over" to try again!');
     } else {
       giveUp();
       guessCounter = 5;

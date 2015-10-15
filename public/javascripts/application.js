@@ -5,7 +5,7 @@ $(document).ready(function(){
   var guessCounter = 0;
   var currentGuess = null;
   var distanceNumber = null;
-  console.log(answer);
+  console.log("Answer = " + answer);
   
   // Function to choose a random number
   function randomAnswer() {
@@ -74,15 +74,13 @@ $(document).ready(function(){
     var distance = (currentGuess - answer);
     // Determine whterh the guess is hot or cold
     var hotOrCold = function() {
-      if (distance >= 40 || distance <= -40) {
+      if (distance > 30 || distance < -30) {
         return "ice cold";
-      } else if (distance >= 20 || distance <= -20) {
+      } else if (distance > 15 || distance < -15) {
         return "cold";
-      } else if (distance >= 10 || distance <= -10) {
+      } else if (distance > 5 || distance < -5) {
         return "hot";
-      } else if (distance >= 5 || distance <= -5) {
-        return "red hot";
-      } else if (distance >= 1 || distance <= -1) {
+      } else if (distance > 0 || distance < 0) {
         return "red hot";
       }
         else {
@@ -144,10 +142,10 @@ $(document).ready(function(){
       currentGuess = getGuess();
       // Check that the guess is a number between 1-100
       if (currentGuess >= 1 && currentGuess <= 100) {
-        console.log(currentGuess);
         // Advance guess counter
         guessCounter++;
-        console.log(guessCounter);
+        console.log("Guess #" + guessCounter + " = " + currentGuess);
+        console.log("# guesses remaining = " + (5 - guessCounter));
         // Update guess list
         updateGuessList(currentGuess, guessCounter);
         // Check how close the guess is to the correct answer

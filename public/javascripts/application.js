@@ -32,7 +32,9 @@ $(document).ready(function(){
   }
 
   // Function to clear the picture area
-      // TBU
+  function removeImage() {
+    $("#guessImage").find("img").remove();
+  }
 
   // Function to clear the indicator
   function clearIndicator() {
@@ -45,7 +47,7 @@ $(document).ready(function(){
     clearGuessForm();
     resetGuessList();
     clearIndicator();
-        // Clear picture TBU
+    removeImage();
     // Generate a new answer
     answer = randomAnswer();
     // Reset the guess counter
@@ -123,6 +125,12 @@ $(document).ready(function(){
     return guess;
   }
 
+  // Function to update the image area based on a number (i.e. the guess or the answer)
+  function imagePlacer(imageNum) {
+    var imagePath = '<img src="./images/Jets-' + imageNum + '.jpeg">';
+    $("#guessImage").append(imagePath);
+  }
+
   // Click event to handle guess submission when the "Submit" button is clicked
   $("#submitGuess").on("click", function() {
     // Check if the user already won or have no guesses left
@@ -144,6 +152,9 @@ $(document).ready(function(){
         updateGuessList(currentGuess, guessCounter);
         // Check how close the guess is to the correct answer
         hotColdIndicator(currentGuess);
+        // Show an image of the number that was guessed
+        removeImage();
+        imagePlacer(currentGuess);
       }
       else {
         alert("Invalid guess. Please enter a number from 1-100");
@@ -161,8 +172,19 @@ $(document).ready(function(){
 
   // Click event to reveal the answer when the "Give up" button is clicked
   $("#giveUp").on("click", function() {
-    giveUp();
-    guessCounter = 5;
+    // Check if the user already won or have no guesses left
+    if (currentGuess === answer) {
+      alert("You can't give up because you won!" + '\nClick "Start Over" to play again!');
+    }
+    else if (guessCounter >= 5) {
+      alert("You can't give up because you\n have no guesses left!" + '\n\nClick "Start Over" to try again!');
+    } else {
+      giveUp();
+      guessCounter = 5;
+      // Show an image of the number that was the answer
+      removeImage();
+      imagePlacer(answer);
+    }
   });
 
 });

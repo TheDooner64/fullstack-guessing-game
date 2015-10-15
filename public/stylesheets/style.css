@@ -113,9 +113,17 @@ button {
 /* Guess list
 ======================================================*/
 
-.guessList ul li {
+.guessList strong {
+  font-size: 20px;
+}
+
+.guessList li {
   font-size: 18px;
-  line-height: 30px;
+  line-height: 35px;
+}
+
+.fadeGuess {
+  opacity: 0.5;
 }
 
 /* Images
@@ -137,7 +145,18 @@ img {
   margin-top: 35px;
   text-align: center;
   font-size: 40px;
+}
+
+.hot {
   color: red;
+}
+
+.cold {
+  color: blue;
+}
+
+.correct {
+  font-weight: bold;
 }
 
 /* Footer

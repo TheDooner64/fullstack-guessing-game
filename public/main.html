@@ -25,7 +25,7 @@
       </div>
       <div class="row">
         <div class="col-xs-6">
-          <form class="form">
+          <form class="form" id="guessForm">
             <input type="text" class="form-control" placeholder="# 1-100">
           </form>
         </div>
@@ -36,13 +36,13 @@
         </div>
         <div class="col-xs-3">
           <div class="row">            
-            <button type="button" class="btn btn-warning btn-lg">
-              Start over
+            <button type="button" class="btn btn-warning btn-lg" id="startOver">
+              Start Over
             </button>
           </div>
           <div class="row">      
-            <button type="button" class="btn btn-danger btn-lg">
-              Give up
+            <button type="button" class="btn btn-danger btn-lg" id="giveUp">
+              Give Up
             </button>
           </div>
         </div>
@@ -53,21 +53,22 @@
           <!-- use class="img-responsive" -->
         </div>
         <div class="col-xs-3 guessList">
-          <strong>Placeholder for list of guesses:</strong>
+          <strong>Your guesses:</strong>
+          <br>
           <ul>
-            <li>Guess #1</li>
-            <li>Guess #2</li>
-            <li>Guess #3</li>
-            <li>Guess #4</li>
-            <li>Guess #5</li>
+            <li class="fadeGuess">Guess #1</li>
+            <li class="fadeGuess">Guess #2</li>
+            <li class="fadeGuess">Guess #3</li>
+            <li class="fadeGuess">Guess #4</li>
+            <li class="fadeGuess">Guess #5</li>
           </ul>
         </div>
       </div>
       <div class="closeIndicator">
-        <p>Placeholder for "You're hot / cold" indicator</p> <!-- use alerts -->
       </div>
     </div>
-    <!-- PLACEHOLDER FOR SCRIPTS LINK -->
-    <!-- <script src="javascripts/guessApp.js"></script> -->
+    <script src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
+    <script src="http://code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+    <script src="javascripts/application.js"></script>
   </body>
 </html>

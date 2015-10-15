@@ -4,6 +4,7 @@ $(document).ready(function(){
   var answer = randomAnswer();
   var guessCounter = 0;
   var currentGuess = null;
+  var guessStack = [];
   var distanceNumber = null;
   console.log("Answer = " + answer);
   
@@ -53,6 +54,7 @@ $(document).ready(function(){
     // Reset the guess counter
     guessCounter = 0;
     currentGuess = null;
+    guessStack = [];
     console.log(answer);
   }
 
@@ -117,10 +119,20 @@ $(document).ready(function(){
     $(".closeIndicator").find("p").addClass(hotColdClass);
   }
 
-  // Function to retrieve and validate guess from form field
+  // Function to retrieve guess from form field
   function getGuess() {
     var guess = +$("#guessForm").find("input").val();
     return guess;
+  }
+
+  // Function to check if number has already been guessed
+  function alreadyGuessed() {
+    for (var i = 0; i < guessStack.length; i++) {
+      if (guessStack[i] === currentGuess) {
+        return true;
+      }
+    }
+    return false;
   }
 
   // Function to update the image area based on a number (i.e. the guess or the answer)
@@ -134,16 +146,18 @@ $(document).ready(function(){
     // Check if the user already won or have no guesses left
     if (currentGuess === answer) {
       alert('You already won!\nClick "Start Over" to play again!');
-    }
-    else if (guessCounter >= 5) {
+    } else if (guessCounter >= 5) {
       alert('You have no guesses left!\nClick "Start Over" to try again!');
     } else {
-      // Run getGuess to validate and store the guess
+      // Run getGuess to retrive the guess from the form field 
       currentGuess = getGuess();
-      // Check that the guess is a number between 1-100
-      if (currentGuess >= 1 && currentGuess <= 100) {
+      // Check that the guess is a number between 1-100, and hasn't been guessed already
+      if (alreadyGuessed()) {
+        alert('You already guessed that number!\nGuess again!');
+      } else if (currentGuess >= 1 && currentGuess <= 100) {
         // Advance guess counter
         guessCounter++;
+        guessStack.push(currentGuess);
         console.log("Guess #" + guessCounter + " = " + currentGuess);
         console.log("# guesses remaining = " + (5 - guessCounter));
         // Update guess list

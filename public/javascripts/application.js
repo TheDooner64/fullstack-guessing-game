@@ -136,7 +136,7 @@ $(document).ready(function(){
 
   // Function to update the image area based on a number (i.e. the guess or the answer)
   function imagePlacer(imageNum) {
-    var imagePath = '<img src="./images/Jets-' + imageNum + '.jpeg">';
+    var imagePath = '<img src="./public/images/Jets-' + imageNum + '.jpeg">';
     $("#guessImage").append(imagePath);
   }
 

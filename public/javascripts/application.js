@@ -140,8 +140,8 @@ $(document).ready(function(){
     $("#guessImage").append(imagePath);
   }
 
-  // Click event to handle guess submission when the "Submit" button is clicked
-  $("#submitGuess").on("click", function() {
+  // Function to handle guess submission
+  function submitGuess() {
     // Check if the user already won or have no guesses left
     if (currentGuess === answer) {
       alert('You already won!\nClick "Start Over" to play again!');
@@ -176,7 +176,21 @@ $(document).ready(function(){
       // Clear guess form
       clearGuessForm();
     }
+  }
+
+  // Click event to handle a guess submission when the "Submit" button is clicked
+  $("#submitGuess").on("click", submitGuess);
+
+  // Keypress event to handle a guess submission when the "Enter" key is pressed
+      // NOTE: I could not figure out how to implement this feature
+ 
+/* 
+  $(document).keyup( function( event ) {
+    if (event.keyCode === 13) {
+      submitGuess();
+    }
   });
+*/
 
   // Click event to start a new game when the "Start over" button is clicked
   $("#startOver").on("click", function() {
